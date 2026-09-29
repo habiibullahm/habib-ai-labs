@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Unlogic — Habib AI Labs" description="A small experiment in finding clarity when the obvious answer doesn't quite add up.">
+  <main class="unlogic-page">
+    <a class="back-link" href="/">← Back to Habib AI Labs</a>
+    <section class="unlogic-card" aria-labelledby="page-title">
+      <p class="eyebrow">A tiny experiment</p>
+      <h1 id="page-title">Unlogic.</h1>
+      <p class="lead">When the answer feels obvious, ask one more question.</p>
+      <div class="prompt" role="note">
+        <span aria-hidden="true">✳</span>
+        <p>Does it make sense—or does it just sound familiar?</p>
+      </div>
+      <a class="home-link" href="/">Explore what we build <span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .unlogic-page { min-height: 75vh; display: grid; align-content: center; width: min(100% - 2rem, 68rem); margin: 0 auto; padding: 4rem 0; }
+  .back-link { color: var(--color-muted, #687076); text-decoration: none; font-size: .9rem; margin-bottom: 2rem; }
+  .unlogic-card { max-width: 48rem; padding: clamp(2rem, 7vw, 5rem); border: 1px solid var(--color-border, #e5e7eb); border-radius: 1.5rem; background: var(--color-surface, #fff); }
+  .eyebrow { color: var(--color-accent, #6c5ce7); text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; font-weight: 700; }
+  h1 { margin: .5rem 0 1rem; font-size: clamp(3.5rem, 12vw, 7rem); line-height: .95; letter-spacing: -.07em; }
+  .lead { max-width: 34rem; color: var(--color-muted, #687076); font-size: clamp(1.1rem, 3vw, 1.5rem); line-height: 1.55; }
+  .prompt { display: flex; gap: 1rem; align-items: flex-start; margin: 2.5rem 0; padding: 1.25rem 1.5rem; border-radius: 1rem; background: var(--color-background, #f6f5ff); }
+  .prompt span { color: var(--color-accent, #6c5ce7); font-size: 1.4rem; }
+  .prompt p { margin: 0; font-weight: 600; }
+  .home-link { display: inline-flex; gap: .6rem; align-items: center; color: var(--color-accent, #6c5ce7); font-weight: 700; text-decoration: none; }
+  .home-link:hover, .back-link:hover { text-decoration: underline; }
+</style>
