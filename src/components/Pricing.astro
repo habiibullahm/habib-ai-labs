@@ -9,7 +9,7 @@ import SectionHeading from './SectionHeading.astro';
     <SectionHeading
       eyebrow="06 — A PLACE TO START"
       title="Start small. Expand when it works"
-      note="Focused starting points, scoped to your use case. Every project begins with a conversation about fit."
+      note="Project-based pricing in Indonesian rupiah. Start with a focused pilot; agree the scope and price before work begins."
       row
     />
     <div class="pricing-grid">
@@ -24,11 +24,12 @@ import SectionHeading from './SectionHeading.astro';
           <h3>{plan.title}</h3>
           <p class="price-description">{plan.description}</p>
           <div class="price-value"><span>{plan.detail}</span><strong>{plan.price}</strong></div>
+          <p class="price-includes-label eyebrow">{plan.includesLabel}</p>
           <ul class="price-includes">{plan.includes.map((item) => <li>{item}</li>)}</ul>
           <Button href="#contact" label={plan.cta} variant={plan.featured ? 'dark' : 'outline'} />
         </article>
       ))}
     </div>
-    <p class="pricing-note">Hosting, model/API usage, and third-party service costs may be charged separately depending on implementation.</p>
+    <p class="pricing-note">{site.pricingNote}</p>
   </div>
 </section>

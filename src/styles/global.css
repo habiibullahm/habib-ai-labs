@@ -244,6 +244,27 @@ p {
   letter-spacing: -0.02em;
   color: #728079;
 }
+.hero-proof {
+  margin-top: 18px;
+  color: #53635a;
+}
+.hero-proof > span {
+  font: 10px var(--mono);
+}
+.hero-proof-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
+}
+.hero-proof-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 .workflow-card {
   border: 1px solid #d9e0d8;
   background: #fff;
@@ -931,6 +952,9 @@ p {
   margin: 0 0 20px;
   flex: 1;
 }
+.price-includes-label {
+  margin: 8px 0;
+}
 .price-includes li {
   position: relative;
   padding: 6px 0 6px 15px;
@@ -1153,6 +1177,9 @@ p {
   min-height: 45px;
 }
 .contact-secondary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 10px;
   color: #e0e8df;
 }
@@ -1235,7 +1262,10 @@ p {
 }
 .footer-nav a,
 .footer-contact a {
-  margin: 9px 0;
+  margin: 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 .footer-bottom {
   height: 49px;
@@ -1593,6 +1623,9 @@ p {
   }
   .project-body {
     padding: 24px 20px;
+  }
+  .preview-image {
+    aspect-ratio: 13 / 20;
   }
   .project-body h3 {
     font-size: 24px;

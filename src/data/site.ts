@@ -1,5 +1,7 @@
 import bidakaraPreview from '../assets/bidakara.png';
 import agresPreview from '../assets/agres.png';
+import bidakaraMobilePreview from '../assets/bidakara-mobile.png';
+import agresMobilePreview from '../assets/agres-mobile.png';
 
 const headline = {
   lead: 'Practical AI',
@@ -34,12 +36,12 @@ export const site = {
     headline,
     introduction: 'Independent AI product studio',
     description:
-      'We build practical AI assistants and custom AI systems for sales, customer support, product discovery, and business knowledge.',
+      'We build AI assistants for SMEs and business teams—answer customer questions, recommend products, and search company knowledge using your website, catalog, and documents.',
     capabilities: 'AI Assistants · RAG · Automation · Custom AI Integration',
   },
   labels: {
     discuss: 'Discuss Your Project',
-    work: 'See Live Work',
+    work: 'See Live Demos',
     demo: 'Try Live Demo',
   },
   problems: [
@@ -102,7 +104,7 @@ export const site = {
       number: '03',
       title: 'AI Knowledge Assistant',
       description:
-        'Turn business documents into a searchable, useful knowledge system.',
+        'Give your team source-backed answers from FAQs, SOPs, policies, and documents.',
       capabilities: [
         'SOP and policy lookup',
         'Document search',
@@ -129,24 +131,28 @@ export const site = {
     {
       number: '01',
       name: 'Bidakara AI Assistant',
+      shortName: 'Bidakara',
       url: 'https://bidakara-ai-assistant.vercel.app/',
       description:
-        'An AI information assistant built around official business information, with grounded responses and safe fallback behavior.',
+        'Help visitors find clinic services, locations, and doctor information from published sources, with grounded answers and a safe fallback when information is unavailable.',
       note: 'Public-information prototype. Confirm medical and service information through official channels.',
       tags: ['RAG', 'Grounding', 'Guardrails', 'AI Assistant'],
       accent: 'blue',
       preview: bidakaraPreview,
+      mobilePreview: bidakaraMobilePreview,
     },
     {
       number: '02',
       name: 'AGRES AI Sales Assistant',
+      shortName: 'AGRES',
       url: 'https://agres-ai-sales-assistant.vercel.app/chat',
       description:
-        'A conversational sales assistant for product discovery, recommendations, budget understanding, and lead qualification.',
+        'Help shoppers shortlist laptops by needs and budget, compare options, and structure customer enquiries for sales follow-up.',
       note: 'Public catalog demo. Prices and stock are a snapshot, not real-time availability.',
       tags: ['Sales AI', 'Product Recommendation', 'Lead Qualification', 'RAG'],
       accent: 'orange',
       preview: agresPreview,
+      mobilePreview: agresMobilePreview,
     },
   ],
   process: [
@@ -181,8 +187,9 @@ export const site = {
       tier: 'STARTER',
       title: 'AI Assistant MVP',
       price: 'Rp3.5jt',
-      detail: 'Starting from',
+      detail: 'Starting from · per project',
       description: 'A focused first assistant to prove the use case.',
+      includesLabel: 'Includes',
       includes: [
         'Initial discovery',
         'One primary knowledge source + basic RAG',
@@ -196,8 +203,9 @@ export const site = {
       tier: 'BUSINESS',
       title: 'Business AI Assistant',
       price: 'Rp7.5jt',
-      detail: 'Starting from',
-      description: 'A richer assistant connected to your business workflow.',
+      detail: 'Starting from · per project',
+      description: 'A sales or support assistant scoped to your business workflow.',
+      includesLabel: 'Possible features',
       includes: [
         'Multiple knowledge sources',
         'Product recommendations or lead capture',
@@ -214,6 +222,7 @@ export const site = {
       detail: 'Scoped to your project',
       description:
         'A tailored system integrated with your existing product or tools.',
+      includesLabel: 'Suitable for',
       includes: [
         'Authenticated AI applications',
         'Database, CRM, or API integration',
@@ -224,6 +233,8 @@ export const site = {
       featured: false,
     },
   ],
+  pricingNote:
+    'Project-based development, not a monthly subscription. Final scope and price are agreed before work starts. Hosting, model/API usage, maintenance, and third-party services may cost extra.',
   faqs: [
     [
       'Do I need AI-ready data?',

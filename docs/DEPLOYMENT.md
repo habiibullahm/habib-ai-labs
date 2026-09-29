@@ -21,11 +21,11 @@ The Playwright suite builds the site and tests the production output, not the de
 - `src/data/site.ts`: brand, founder, navigation, services, project descriptions and links, pricing, FAQs, SEO, and public contacts.
 - `src/components/`: section layouts and introductory copy.
 - `src/styles/global.css`: typography, colors, responsive layouts, and reduced-motion behavior.
-- `src/assets/bidakara.png` and `src/assets/agres.png`: real screenshots captured from the live demos. Astro generates responsive WebP variants during the build.
+- `src/assets/bidakara.png`, `src/assets/agres.png`, and their `*-mobile.png` counterparts: real desktop and mobile screenshots captured from the live demos. Astro generates WebP variants during the build; native `<picture>` sources select the mobile captures on phones.
 - `src/assets/og-image.svg`: editable social-card source. Export a 1200 × 630 PNG to `public/og-image.png` after changing the branding.
 - `public/fonts/`: self-hosted Latin WOFF2 fonts and their SIL Open Font Licenses. No Google Fonts requests run in visitors' browsers.
 
-To add a case study, import its screenshot in `src/data/site.ts` and add a project entry with its name, URL, description, honest limitations, tags, preview, and surface accent (`blue` or `orange`). The Work section renders all entries automatically.
+To add a case study, import its desktop and mobile screenshots in `src/data/site.ts` and add a project entry with its name, shortName, URL, description, honest limitations, tags, preview, mobilePreview, and surface accent (`blue` or `orange`). The Work section and hero demo links render all entries automatically.
 
 ## Contact setup
 

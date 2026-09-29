@@ -6,14 +6,15 @@ const sources = [{ label: 'Website', icon: Globe }, { label: 'Documents', icon: 
 const outcomes = ['Answers', 'Recommendations', 'Leads', 'Knowledge'];
 ---
 <section class="hero section-shell" id="top">
-  <div class="hero-copy reveal">
+  <div class="hero-copy">
     <p class="eyebrow"><span class="live-dot"></span>{site.hero.introduction}</p>
     <h1>{site.hero.headline.lead}<br /> {site.hero.headline.prefix} <span>{site.hero.headline.accent}</span></h1>
     <p class="hero-lede">{site.hero.description}</p>
     <div class="hero-actions"><Button href="#contact" label={site.labels.discuss} /><Button href="#work" label={site.labels.work} variant="light" down /></div>
+    <div class="hero-proof"><span>Try a working demo</span><div class="hero-proof-links">{site.projects.map((project) => <a href={project.url} target="_blank" rel="noopener noreferrer">{project.shortName} demo ↗</a>)}</div></div>
     <p class="hero-tags">{site.hero.capabilities}</p>
   </div>
-  <div class="workflow-card reveal" role="img" aria-label="Your website, documents, catalog and FAQs power an AI assistant for answers, recommendations, leads and knowledge.">
+  <div class="workflow-card" role="img" aria-label="Your website, documents, catalog and FAQs power an AI assistant for answers, recommendations, leads and knowledge.">
     <div class="workflow-head"><span class="eyebrow">A practical system</span><span class="system-status"><span class="live-dot"></span> READY TO HELP</span></div>
     <div class="source-grid">{sources.map(({ label, icon: Icon }) => <div class="source"><span class="source-icon"><Icon size={18} aria-hidden="true" /></span><span>{label}</span></div>)}</div>
     <div class="flow-line" aria-hidden="true"><span></span><span></span><span></span><span></span></div>

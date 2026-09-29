@@ -1,8 +1,12 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import { ArrowUpRight } from '@lucide/astro';
 import { site } from '../data/site';
 import SectionHeading from './SectionHeading.astro';
+const projects = await Promise.all(site.projects.map(async (project) => ({
+  ...project,
+  mobileImage: await getImage({ src: project.mobilePreview, format: 'webp', quality: 85 }),
+})));
 ---
 <section class="work-section section-pad" id="work">
   <div class="section-shell">
@@ -13,7 +17,7 @@ import SectionHeading from './SectionHeading.astro';
       row
     />
     <div class="projects-grid">
-      {site.projects.map((project) => (
+      {projects.map((project) => (
         <article class:list={['project-card', `project-${project.accent}`, 'reveal']}>
           <a class="project-preview" href={project.url} target="_blank" rel="noopener noreferrer">
             <div class="preview-chrome">
@@ -21,7 +25,9 @@ import SectionHeading from './SectionHeading.astro';
               <span class="preview-url">{new URL(project.url).hostname}</span>
               <span class="preview-live">LIVE DEMO</span>
             </div>
-            <Image
+            <picture>
+              <source media="(max-width: 680px)" srcset={project.mobileImage.src} width={project.mobilePreview.width} height={project.mobilePreview.height} />
+              <Image
               src={project.preview}
               alt={`${project.name} welcome screen, captured from the live independent demo`}
               widths={[480, 800, 1200]}
@@ -31,7 +37,8 @@ import SectionHeading from './SectionHeading.astro';
               quality={85}
               loading="lazy"
               class="preview-image"
-            />
+              />
+            </picture>
           </a>
           <div class="project-body">
             <div class="project-heading">
