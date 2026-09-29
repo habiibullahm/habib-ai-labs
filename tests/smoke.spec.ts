@@ -17,6 +17,10 @@ test('homepage, project previews, contact and SEO are complete', async ({
   );
   await expect(page.locator('#services article')).toHaveCount(4);
   await expect(page.locator('#work article')).toHaveCount(2);
+  await expect(page.locator('#work .work-capabilities')).toBeVisible();
+  await expect(page.locator('#work .work-capability-item')).toHaveCount(7);
+  await expect(page.locator('#work .work-capabilities')).toContainText('2 live demos');
+  await expect(page.locator('#work .work-capability-item').filter({ hasText: 'RAG' })).toContainText('2 of 2');
   await expect(page.locator('#pricing article')).toHaveCount(3);
   await expect(page.locator('details')).toHaveCount(7);
   await expect(
