@@ -1,0 +1,9 @@
+---
+import { ArrowUpRight, Plus } from '@lucide/astro';
+import { site } from '../data/site';
+import SectionHeading from './SectionHeading.astro';
+---
+<section class="faq-section section-pad" id="faq"><div class="section-shell faq-layout">
+  <SectionHeading eyebrow="08 — GOOD QUESTIONS" title="Before we get started" note="Not sure whether AI is the right fit? Here are a few useful things to know."><a class="text-link" href="#contact">Ask a question<ArrowUpRight size={14} aria-hidden="true" /></a></SectionHeading>
+  <div class="faq-list">{site.faqs.map(([question, answer], index) => <details class="faq-item reveal"><summary><span class="faq-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><span>{question}</span><Plus class="faq-toggle" size={16} aria-hidden="true" /></summary><p class="faq-answer">{answer}</p></details>)}</div>
+</div></section>

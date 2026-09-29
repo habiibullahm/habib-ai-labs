@@ -1,0 +1,34 @@
+---
+import { BookOpen, LifeBuoy, MessagesSquare, Workflow } from '@lucide/astro';
+import { site } from '../data/site';
+import SectionHeading from './SectionHeading.astro';
+
+const icons = { sales: MessagesSquare, support: LifeBuoy, knowledge: BookOpen, integration: Workflow };
+---
+<section class="services-section" id="services">
+  <div class="section-shell section-pad">
+    <SectionHeading
+      eyebrow="02 — WHAT I BUILD"
+      title="AI solutions built around your workflow"
+      note="Practical tools your customers and team can actually use—built around your data, goals, and existing systems."
+      row
+    />
+    <div class="service-grid">
+      {site.services.map((service) => {
+        const Icon = icons[service.icon];
+        return (
+          <article class="service-card reveal">
+            <div class="service-top">
+              <span class="item-no">{service.number}</span>
+              <span class="service-icon"><Icon size={22} aria-hidden="true" /></span>
+            </div>
+            <h3>{service.title}</h3>
+            <p class="service-description">{service.description}</p>
+            <ul class="capability-list">{service.capabilities.map((item) => <li>{item}</li>)}</ul>
+            <p class="service-suitable">{service.suitable}</p>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>

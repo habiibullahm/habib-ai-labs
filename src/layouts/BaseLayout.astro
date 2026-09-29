@@ -1,0 +1,48 @@
+---
+import { site } from '../data/site';
+import '../styles/global.css';
+
+const canonical = site.seo.url;
+const image = new URL(site.seo.image, canonical).href;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: site.brand,
+  url: canonical,
+  description: site.seo.description,
+  founder: { '@type': 'Person', name: site.founder.name, jobTitle: site.founder.role },
+  sameAs: [site.portfolio, site.contact.linkedin, site.contact.github].filter(Boolean),
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f5" />
+    <title>{site.seo.title}</title>
+    <meta name="description" content={site.seo.description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={site.seo.title} />
+    <meta property="og:description" content={site.seo.description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.brand} — ${site.tagline}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={site.seo.title} />
+    <meta name="twitter:description" content={site.seo.description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={`${site.brand} — ${site.tagline}`} />
+    <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    <script src="../scripts/interactions.ts"></script>
+  </body>
+</html>

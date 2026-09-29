@@ -1,0 +1,10 @@
+---
+import { ArrowDown, ArrowUpRight } from '@lucide/astro';
+interface Props { href: string; label: string; variant?: 'dark' | 'light' | 'outline'; className?: string; down?: boolean }
+const { href, label, variant = 'dark', className = '', down = false } = Astro.props;
+const external = href.startsWith('https://');
+const Icon = down ? ArrowDown : ArrowUpRight;
+---
+<a class:list={['button', `button-${variant}`, className]} href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>
+  {label}<Icon size={14} aria-hidden="true" />
+</a>

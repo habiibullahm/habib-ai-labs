@@ -1,0 +1,11 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+import { site } from '../data/site';
+import SectionHeading from './SectionHeading.astro';
+---
+<section class="section-shell problems section-pad" id="problems">
+  <SectionHeading eyebrow="01 — THE OPPORTUNITY" title="Where AI can help your business" note="Start with the parts of work that repeat, slow people down, or make it hard to find the right answer." />
+  <div class="problem-list">
+    {site.problems.map((problem, index) => <article class="problem-item reveal"><span class="item-no">{String(index + 1).padStart(2, '0')}</span><div><h3>{problem.title}</h3><p>{problem.description}</p></div><span class="problem-result">{problem.outcome}<ArrowUpRight size={12} aria-hidden="true" /></span></article>)}
+  </div>
+</section>

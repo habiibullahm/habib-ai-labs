@@ -1,0 +1,18 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  note?: string;
+  row?: boolean;
+}
+const { eyebrow, title, note, row = false } = Astro.props;
+---
+<div class:list={['section-heading', 'reveal', { 'section-heading-row': row }]}>
+  <div>
+    <p class="eyebrow">{eyebrow}</p>
+    <h2>{title}<span class="accent-dot">.</span></h2>
+  </div>
+  {note && <p class="heading-note">{note}</p>}
+  <slot />
+</div>
+

@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import { ArrowUpRight } from '@lucide/astro';
+import { site } from '../data/site';
+import SectionHeading from './SectionHeading.astro';
+---
+<section class="work-section section-pad" id="work">
+  <div class="section-shell">
+    <SectionHeading
+      eyebrow="03 — SELECTED WORK"
+      title="See it working"
+      note="Real, live AI products. Try them yourself and see what a focused assistant can do."
+      row
+    />
+    <div class="projects-grid">
+      {site.projects.map((project) => (
+        <article class:list={['project-card', `project-${project.accent}`, 'reveal']}>
+          <a class="project-preview" href={project.url} target="_blank" rel="noopener noreferrer">
+            <div class="preview-chrome">
+              <span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="preview-url">{new URL(project.url).hostname}</span>
+              <span class="preview-live">LIVE DEMO</span>
+            </div>
+            <Image
+              src={project.preview}
+              alt={`${project.name} welcome screen, captured from the live independent demo`}
+              widths={[480, 800, 1200]}
+              sizes="(max-width: 680px) calc(100vw - 64px), (max-width: 900px) calc(100vw - 84px), 640px"
+              width={1200}
+              format="webp"
+              quality={85}
+              loading="lazy"
+              class="preview-image"
+            />
+          </a>
+          <div class="project-body">
+            <div class="project-heading">
+              <span class="eyebrow">LIVE PROJECT / {project.number}</span>
+              <ArrowUpRight size={18} class="project-arrow" aria-hidden="true" />
+            </div>
+            <h3>{project.name}</h3>
+            <p class="project-description">{project.description}</p>
+            <div class="project-tags">{project.tags.map((tag) => <span>{tag}</span>)}</div>
+            <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
+              {site.labels.demo}<ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+            <p class="project-note">{project.note}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="work-disclaimer">Independent demos using public information. Not affiliated with Bidakara or AGRES.ID. Not client endorsements.</p>
+  </div>
+</section>

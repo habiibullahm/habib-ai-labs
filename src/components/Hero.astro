@@ -1,0 +1,26 @@
+---
+import { ArrowDownRight, BookOpen, FileText, Globe, Grid2x2, MessagesSquare, Sparkles } from '@lucide/astro';
+import { site } from '../data/site';
+import Button from './Button.astro';
+const sources = [{ label: 'Website', icon: Globe }, { label: 'Documents', icon: FileText }, { label: 'Catalog', icon: Grid2x2 }, { label: 'FAQs', icon: MessagesSquare }];
+const outcomes = ['Answers', 'Recommendations', 'Leads', 'Knowledge'];
+---
+<section class="hero section-shell" id="top">
+  <div class="hero-copy reveal">
+    <p class="eyebrow"><span class="live-dot"></span>{site.hero.introduction}</p>
+    <h1>{site.hero.headline.lead}<br /> {site.hero.headline.prefix} <span>{site.hero.headline.accent}</span></h1>
+    <p class="hero-lede">{site.hero.description}</p>
+    <div class="hero-actions"><Button href="#contact" label={site.labels.discuss} /><Button href="#work" label={site.labels.work} variant="light" down /></div>
+    <p class="hero-tags">{site.hero.capabilities}</p>
+  </div>
+  <div class="workflow-card reveal" role="img" aria-label="Your website, documents, catalog and FAQs power an AI assistant for answers, recommendations, leads and knowledge.">
+    <div class="workflow-head"><span class="eyebrow">A practical system</span><span class="system-status"><span class="live-dot"></span> READY TO HELP</span></div>
+    <div class="source-grid">{sources.map(({ label, icon: Icon }) => <div class="source"><span class="source-icon"><Icon size={18} aria-hidden="true" /></span><span>{label}</span></div>)}</div>
+    <div class="flow-line" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="assistant-node"><span class="assistant-spark"><Sparkles size={18} aria-hidden="true" /></span><div><strong>AI Assistant</strong><small>Knows your business</small></div><ArrowDownRight size={16} class="node-arrow" aria-hidden="true" /></div>
+    <div class="flow-line reverse" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="outcome-grid">{outcomes.map((label) => <span>{label}</span>)}</div>
+    <div class="workflow-foot"><BookOpen size={12} aria-hidden="true" /> Grounded in your approved information</div>
+  </div>
+  <div class="hero-index" aria-hidden="true"><span>BUILT AROUND YOUR BUSINESS</span><span>INDEPENDENT / END-TO-END</span></div>
+</section>

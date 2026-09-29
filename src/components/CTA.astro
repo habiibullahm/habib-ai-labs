@@ -1,0 +1,9 @@
+---
+import { ArrowUpRight, Sparkles } from '@lucide/astro';
+import { site, contactLinks, projectEnquiryUrl } from '../data/site';
+import Button from './Button.astro';
+---
+<section class="contact-section section-pad" id="contact"><div class="section-shell contact-panel reveal">
+  <div class="contact-content"><p class="eyebrow">LET’S MAKE SOMETHING USEFUL</p><h2>Have a business workflow<br />that AI could improve<span class="contact-dot">?</span></h2><p>Tell us what your customers repeatedly ask, what your team still does manually, or what information is difficult to access.</p><div class="contact-actions"><Button href={projectEnquiryUrl} label={site.labels.discuss} variant="light" className="button-contact" /><a class="contact-secondary" href="#work">{site.labels.work} <ArrowUpRight size={12} class="inline-block" aria-hidden="true" /></a></div><div class="contact-links">{contactLinks.filter((item) => item.label !== 'GitHub').map((item) => <a class="contact-link" href={item.url} target={item.url.startsWith('https://') ? '_blank' : undefined} rel={item.url.startsWith('https://') ? 'noopener noreferrer' : undefined}>{item.label} ↗</a>)}</div></div>
+  <div class="contact-aside"><Sparkles size={24} class="aside-cross" aria-hidden="true" /><span class="eyebrow">A GOOD FIRST STEP</span><p>Describe the problem.<br />We’ll figure out what’s worth building.</p><span class="aside-arrow" aria-hidden="true">↙</span></div>
+</div></section>

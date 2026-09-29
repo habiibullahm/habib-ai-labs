@@ -1,0 +1,8 @@
+---
+import { site } from '../data/site';
+import SectionHeading from './SectionHeading.astro';
+---
+<section class="process-section section-pad" id="process"><div class="section-shell">
+  <SectionHeading eyebrow="04 — HOW IT WORKS" title="From business problem to production AI" note="A clear, collaborative path from figuring out what matters to launching a system that works." row />
+  <div class="process-track">{site.process.map(([number, title, description]) => <article class="process-step reveal"><span class="process-number">{number}</span><span class="process-marker" aria-hidden="true"></span><h3>{title}</h3><p>{description}</p></article>)}</div>
+</div></section>

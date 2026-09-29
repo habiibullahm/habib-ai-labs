@@ -1,0 +1,19 @@
+---
+import { Database, Layers, MessagesSquare, Users } from '@lucide/astro';
+import SectionHeading from './SectionHeading.astro';
+const nodes = [
+  { title: 'Business Data', description: 'Website · PDFs · Catalog · APIs', icon: Database },
+  { title: 'Knowledge Layer', description: 'Organized, searchable information', icon: Layers },
+  { title: 'AI Assistant', description: 'Grounded, useful conversations', icon: MessagesSquare },
+  { title: 'Customer / Team', description: 'Gets a helpful answer', icon: Users },
+];
+const actions = ['Answer questions', 'Recommend products', 'Capture leads', 'Search documents', 'Human handoff'];
+---
+<section class="architecture-section section-pad"><div class="section-shell architecture-layout">
+  <SectionHeading eyebrow="05 — UNDER THE HOOD" title="How your business becomes an AI assistant" note="The assistant is designed around approved business information—not just generic model knowledge."><p class="architecture-note"><span class="live-dot"></span>Your information stays at the center of the experience.</p></SectionHeading>
+  <div class="architecture-visual reveal">
+    {nodes.map(({ title, description, icon: Icon }, index) => <><div class:list={['arch-node', { 'arch-ai': index === 2 }]}><span class="arch-symbol"><Icon size={18} aria-hidden="true" /></span><div><strong>{title}</strong><small>{description}</small></div></div><div class="arch-connector" aria-hidden="true"></div></>)}
+    <p class="eyebrow arch-label">USEFUL ACTIONS</p><div class="arch-actions">{actions.map((action) => <span>{action}</span>)}</div>
+  </div>
+</div></section>
+

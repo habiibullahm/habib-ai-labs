@@ -1,0 +1,12 @@
+---
+import { site, contactLinks } from '../data/site';
+---
+<footer class="site-footer"><div class="section-shell">
+  <div class="footer-main">
+    <div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">h<span>.</span></span><span>{site.brand}</span></a><p>{site.tagline}</p><span class="footer-builder">Building practical AI products for real business problems.</span></div>
+    <div class="footer-founder"><p class="eyebrow">FOUNDER</p><strong>{site.founder.name}</strong><span>{site.founder.role}</span></div>
+    <div class="footer-nav"><p class="eyebrow">EXPLORE</p><a href={site.portfolio} target="_blank" rel="noopener noreferrer">Professional Portfolio ↗</a><a href="#services">Services</a><a href="#work">Selected Work</a></div>
+    <div class="footer-contact"><p class="eyebrow">SAY HELLO</p>{contactLinks.map((item) => <a class="contact-link" href={item.url} target={item.url.startsWith('https://') ? '_blank' : undefined} rel={item.url.startsWith('https://') ? 'noopener noreferrer' : undefined}>{item.label} ↗</a>)}</div>
+  </div>
+  <div class="footer-bottom"><span>© {new Date().getFullYear()} {site.brand}</span><span>Independent studio · Built with care</span><a href="#top">Back to top ↑</a></div>
+</div></footer>
