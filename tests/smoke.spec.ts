@@ -192,7 +192,13 @@ test('SEO assets and crawler routes exist in the production build', async ({
     'Sitemap: https://ai.habiibullahm.my.id/sitemap.xml',
   );
   const sitemap = await request.get('/sitemap.xml');
-  expect(await sitemap.text()).toContain(
+  expect(sitemap.status()).toBe(200);
+  expect(sitemap.headers()['content-type']).toMatch(
+    /^(application|text)\/xml(?:\s*;|$)/i,
+  );
+  const sitemapXml = await sitemap.text();
+  expect(sitemapXml).toMatch(/^<\?xml\s+version="1\.0"\s+encoding="UTF-8"\?>/);
+  expect(sitemapXml).toContain(
     '<loc>https://ai.habiibullahm.my.id/</loc>',
   );
 });
