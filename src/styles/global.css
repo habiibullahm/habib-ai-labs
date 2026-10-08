@@ -647,6 +647,20 @@ p {
 .project-orange .project-preview {
   background: #f3eee6;
 }
+.project-preview-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  min-height: 280px;
+  padding: 28px;
+  background: #f8faf6;
+  color: #203128;
+}
+.project-preview-placeholder strong {
+  font-size: clamp(32px, 5vw, 56px);
+  letter-spacing: -0.04em;
+}
 .preview-chrome {
   background: #fff;
   display: flex;

@@ -154,6 +154,18 @@ export const site = {
       preview: agresPreview,
       mobilePreview: agresMobilePreview,
     },
+    {
+      number: '03',
+      name: 'Nibie AI',
+      shortName: 'Nibie',
+      url: 'https://nibie-ai.vercel.app/',
+      description: 'Explore Nibie AI, another project from the Habib AI Labs portfolio.',
+      note: 'Open the live project to explore the experience.',
+      tags: ['AI', 'Live Project'],
+      accent: 'blue',
+      preview: null,
+      mobilePreview: null,
+    },
   ],
   process: [
     [
