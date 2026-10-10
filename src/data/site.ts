@@ -154,6 +154,19 @@ export const site = {
       preview: agresPreview,
       mobilePreview: agresMobilePreview,
     },
+    {
+      number: '03',
+      name: 'Nibie AI',
+      shortName: 'Nibie',
+      url: 'https://nibie-ai.vercel.app/',
+      description:
+        'A personal AI workspace for thinking, writing, coding, and exploring ideas, with a calm interface built around getting work done.',
+      note: 'Live product. Open the app to try the workspace yourself.',
+      tags: ['AI Workspace', 'Writing', 'Coding', 'Personalization'],
+      accent: 'blue',
+      preview: null,
+      mobilePreview: null,
+    },
   ],
   process: [
     [
