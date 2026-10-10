@@ -215,3 +215,32 @@ test('reduced motion keeps content visible without animated workflows', async ({
   expect(parseFloat(duration)).toBeLessThan(0.01);
   await expect(page.locator('#work')).toBeVisible();
 });
+
+test('unlogic page has its own metadata, skip target and no script errors', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  page.on('console', (message) => {
+    if (message.type() === 'error') errors.push(message.text());
+  });
+  await page.goto('/unlogic');
+  await expect(page).toHaveTitle('Unlogic — Habib AI Labs');
+  const description =
+    "A small experiment in finding clarity when the obvious answer doesn't quite add up.";
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    'content',
+    description,
+  );
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+    'content',
+    'Unlogic — Habib AI Labs',
+  );
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    'href',
+    /^https:\/\/ai\.habiibullahm\.my\.id\/unlogic\/?$/,
+  );
+  await expect(page.locator('#main')).toHaveCount(1);
+  await expect(page.locator('.skip-link')).toHaveAttribute('href', '#main');
+  expect(errors).toEqual([]);
+});
