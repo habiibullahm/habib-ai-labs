@@ -159,9 +159,10 @@ export const site = {
       name: 'Nibie AI',
       shortName: 'Nibie',
       url: 'https://nibie-ai.vercel.app/',
-      description: 'Explore Nibie AI, another project from the Habib AI Labs portfolio.',
-      note: 'Open the live project to explore the experience.',
-      tags: ['AI', 'Live Project'],
+      description:
+        'A personal AI workspace for thinking, writing, coding, and exploring ideas, with a calm interface built around getting work done.',
+      note: 'Live product. Open the app to try the workspace yourself.',
+      tags: ['AI Workspace', 'Writing', 'Coding', 'Personalization'],
       accent: 'blue',
       preview: null,
       mobilePreview: null,
