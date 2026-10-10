@@ -623,6 +623,89 @@ p {
 .work-section {
   background: #f8f9f6;
 }
+.work-capabilities {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 20px 40px;
+  align-items: center;
+  margin-top: 40px;
+  padding: clamp(22px, 4vw, 38px);
+  border: 1px solid #e0e5df;
+  background: #fff;
+}
+.capability-intro h3 {
+  max-width: 340px;
+  margin: 9px 0 10px;
+  font: 700 clamp(22px, 3vw, 30px)/1.15 var(--display);
+  letter-spacing: -0.045em;
+}
+.capability-kicker {
+  margin: 0;
+  color: #718072;
+  font: 10px var(--mono);
+  letter-spacing: 0.12em;
+}
+.capability-summary {
+  max-width: 340px;
+  margin: 0;
+  color: #737f77;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.capability-total {
+  display: flex;
+  gap: 9px;
+  align-items: baseline;
+  margin: 21px 0 0;
+  color: #737f77;
+  font: 11px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.capability-total strong {
+  color: #29452f;
+  font: 700 27px/1 var(--display);
+  letter-spacing: -0.05em;
+}
+.work-capability-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 25px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.work-capability-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #344237;
+  font-size: 12px;
+}
+.work-capability-count {
+  flex: 0 0 auto;
+  color: #748076;
+  font: 10px var(--mono);
+}
+.work-capability-track {
+  height: 5px;
+  overflow: hidden;
+  background: #e9ede7;
+}
+.work-capability-track span {
+  display: block;
+  width: var(--capability-fill);
+  height: 100%;
+  background: #557b4b;
+}
+.work-capability-note {
+  grid-column: 2;
+  margin: -7px 0 0;
+  color: #858f87;
+  font-size: 10px;
+  line-height: 1.5;
+}
 .projects-grid {
   display: grid;
   margin-top: 48px;
@@ -1404,6 +1487,13 @@ p {
   .service-card {
     min-height: 270px;
   }
+  .work-capabilities {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .work-capability-note {
+    grid-column: 1;
+  }
   .project-preview {
     padding: 11px 11px 0;
   }
@@ -1620,6 +1710,14 @@ p {
     grid-template-columns: 1fr;
     gap: 13px;
     margin-top: 30px;
+  }
+  .work-capabilities {
+    margin-top: 24px;
+    padding: 20px 18px;
+  }
+  .work-capability-list {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
   .project-body {
     padding: 24px 20px;

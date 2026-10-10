@@ -7,6 +7,12 @@ const projects = await Promise.all(site.projects.map(async (project) => ({
   ...project,
   mobileImage: await getImage({ src: project.mobilePreview, format: 'webp', quality: 85 }),
 })));
+const capabilityData = Array.from(new Set(projects.flatMap((project) => [...project.tags])))
+  .map((label) => ({
+    label,
+    count: projects.filter((project) => project.tags.some((tag) => tag === label)).length,
+  }))
+  .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
 ---
 <section class="work-section section-pad" id="work">
   <div class="section-shell">
@@ -16,6 +22,28 @@ const projects = await Promise.all(site.projects.map(async (project) => ({
       note="Real, live AI products. Try them yourself and see what a focused assistant can do."
       row
     />
+    <section class="work-capabilities" aria-labelledby="capability-title">
+      <div class="capability-intro">
+        <p class="capability-kicker">PROJECT SNAPSHOT</p>
+        <h3 id="capability-title">Capabilities across the work</h3>
+        <p class="capability-summary">A quick look at the capabilities represented in the live demos below.</p>
+        <p class="capability-total"><span><strong>{projects.length}</strong> live demos</span></p>
+      </div>
+      <ul class="work-capability-list" aria-label="Capabilities by number of live demos">
+        {capabilityData.map(({ label, count }) => (
+          <li class="work-capability-item">
+            <div class="work-capability-row">
+              <span>{label}</span>
+              <span class="work-capability-count">{count} of {projects.length}</span>
+            </div>
+            <div class="work-capability-track" aria-hidden="true">
+              <span style={`--capability-fill: ${(count / Math.max(projects.length, 1)) * 100}%`}></span>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <p class="work-capability-note">Counts are based on project tags; capabilities can overlap within a demo.</p>
+    </section>
     <div class="projects-grid">
       {projects.map((project) => (
         <article class:list={['project-card', `project-${project.accent}`, 'reveal']}>
