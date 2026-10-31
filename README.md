@@ -35,13 +35,8 @@ There is no unit-test script. Playwright is the test suite:
 ```sh
 npx playwright install chromium
 npm test
-```
-
-`npm test` runs `playwright test`. The Playwright config builds the site and serves it with `npm run preview` on port 4321.
-
-```sh
 npm run lint
 npm run typecheck
 ```
 
-`npm run lint` is `eslint .`. `npm run typecheck` is `astro check`.
+`npm test` runs `playwright test`. The Playwright config builds the site and serves it with `npm run preview` on port 4321. `npm run lint` is `eslint .`. `npm run typecheck` is `astro check`.
