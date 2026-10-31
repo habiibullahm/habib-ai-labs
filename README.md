@@ -38,3 +38,10 @@ npm test
 ```
 
 `npm test` runs `playwright test`. The Playwright config builds the site and serves it with `npm run preview` on port 4321.
+
+```sh
+npm run lint
+npm run typecheck
+```
+
+`npm run lint` is `eslint .`. `npm run typecheck` is `astro check`.
