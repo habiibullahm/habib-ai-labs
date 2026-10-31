@@ -740,6 +740,11 @@ p {
   color: #69766c;
   font: 10px var(--mono);
 }
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+}
 .project-link {
   font-weight: 700;
   color: #425e45;

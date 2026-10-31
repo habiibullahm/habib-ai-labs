@@ -48,9 +48,16 @@ const projects = await Promise.all(site.projects.map(async (project) => ({
             <h3>{project.name}</h3>
             <p class="project-description">{project.description}</p>
             <div class="project-tags">{project.tags.map((tag) => <span>{tag}</span>)}</div>
-            <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
-              {site.labels.demo}<ArrowUpRight size={16} aria-hidden="true" />
-            </a>
+            <div class="project-links">
+              <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
+                {site.labels.demo}<ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+              {project.repo ? (
+                <a class="project-link" href={project.repo} target="_blank" rel="noopener noreferrer">
+                  View the repo<ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              ) : null}
+            </div>
             <p class="project-note">{project.note}</p>
           </div>
         </article>

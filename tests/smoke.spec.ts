@@ -72,7 +72,8 @@ test('live demo and portfolio links open safely', async ({ page }) => {
   const urls = [
     'https://bidakara-ai-assistant.vercel.app/',
     'https://agres-ai-sales-assistant.vercel.app/chat',
-    'https://nibie-ai.vercel.app/',
+    'https://nibie-ai.vercel.app/demo',
+    'https://github.com/habiibullahm/nibie-code',
     'https://habiibullahm.my.id/',
   ];
   for (const url of urls) {

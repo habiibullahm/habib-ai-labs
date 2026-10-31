@@ -140,6 +140,7 @@ export const site = {
       accent: 'blue',
       preview: bidakaraPreview,
       mobilePreview: bidakaraMobilePreview,
+      repo: null,
     },
     {
       number: '02',
@@ -153,19 +154,21 @@ export const site = {
       accent: 'orange',
       preview: agresPreview,
       mobilePreview: agresMobilePreview,
+      repo: null,
     },
     {
       number: '03',
       name: 'Nibie AI',
       shortName: 'Nibie',
-      url: 'https://nibie-ai.vercel.app/',
+      url: 'https://nibie-ai.vercel.app/demo',
       description:
-        'A personal AI workspace for thinking, writing, coding, and exploring ideas, with a calm interface built around getting work done.',
-      note: 'Live product. Open the app to try the workspace yourself.',
+        'An AI chat app built with Next.js, Supabase, Drizzle, and Fastify.',
+      note: 'Public recruiter demo. Open /demo to try the app.',
       tags: ['AI Workspace', 'Writing', 'Coding', 'Personalization'],
       accent: 'blue',
       preview: null,
       mobilePreview: null,
+      repo: 'https://github.com/habiibullahm/nibie-code',
     },
   ],
   process: [
