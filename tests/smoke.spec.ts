@@ -16,7 +16,8 @@ test('homepage, project previews, contact and SEO are complete', async ({
     'Practical AI for real businesses.',
   );
   await expect(page.locator('#services article')).toHaveCount(4);
-  await expect(page.locator('#work article')).toHaveCount(2);
+  await expect(page.locator('#work article')).toHaveCount(3);
+  await expect(page.locator('#work').getByRole('heading', { name: 'Nibie AI' })).toBeVisible();
   await expect(page.locator('#pricing article')).toHaveCount(3);
   await expect(page.locator('details')).toHaveCount(7);
   await expect(
@@ -71,6 +72,8 @@ test('live demo and portfolio links open safely', async ({ page }) => {
   const urls = [
     'https://bidakara-ai-assistant.vercel.app/',
     'https://agres-ai-sales-assistant.vercel.app/chat',
+    'https://nibie-ai.vercel.app/demo',
+    'https://github.com/habiibullahm/nibie-code',
     'https://habiibullahm.my.id/',
   ];
   for (const url of urls) {
@@ -126,7 +129,7 @@ test('content and mobile navigation remain accessible without JavaScript', async
   const page = await context.newPage();
   await page.goto('http://127.0.0.1:4321/');
   await expect(page.locator('#services article')).toHaveCount(4);
-  await expect(page.locator('#work article')).toHaveCount(2);
+  await expect(page.locator('#work article')).toHaveCount(3);
   await expect(page.locator('#contact .button-contact')).toBeVisible();
   await expect(page.locator('#site-nav')).toBeVisible();
   await page

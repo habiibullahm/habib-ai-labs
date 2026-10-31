@@ -5,7 +5,7 @@ import { site } from '../data/site';
 import SectionHeading from './SectionHeading.astro';
 const projects = await Promise.all(site.projects.map(async (project) => ({
   ...project,
-  mobileImage: await getImage({ src: project.mobilePreview, format: 'webp', quality: 85 }),
+  mobileImage: project.mobilePreview ? await getImage({ src: project.mobilePreview, format: 'webp', quality: 85 }) : null,
 })));
 ---
 <section class="work-section section-pad" id="work">
@@ -25,7 +25,7 @@ const projects = await Promise.all(site.projects.map(async (project) => ({
               <span class="preview-url">{new URL(project.url).hostname}</span>
               <span class="preview-live">LIVE DEMO</span>
             </div>
-            <picture>
+            {project.preview && project.mobilePreview && project.mobileImage ? <picture>
               <source media="(max-width: 680px)" srcset={project.mobileImage.src} width={project.mobilePreview.width} height={project.mobilePreview.height} />
               <Image
               src={project.preview}
@@ -38,7 +38,7 @@ const projects = await Promise.all(site.projects.map(async (project) => ({
               loading="lazy"
               class="preview-image"
               />
-            </picture>
+            </picture> : <div class="project-preview-placeholder"><span class="eyebrow">HABIB AI LABS / LIVE PROJECT</span><strong>{project.name}</strong><span>Explore the live project ↗</span></div>}
           </a>
           <div class="project-body">
             <div class="project-heading">
@@ -48,9 +48,16 @@ const projects = await Promise.all(site.projects.map(async (project) => ({
             <h3>{project.name}</h3>
             <p class="project-description">{project.description}</p>
             <div class="project-tags">{project.tags.map((tag) => <span>{tag}</span>)}</div>
-            <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
-              {site.labels.demo}<ArrowUpRight size={16} aria-hidden="true" />
-            </a>
+            <div class="project-links">
+              <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
+                {site.labels.demo}<ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+              {project.repo ? (
+                <a class="project-link" href={project.repo} target="_blank" rel="noopener noreferrer">
+                  View the repo<ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              ) : null}
+            </div>
             <p class="project-note">{project.note}</p>
           </div>
         </article>

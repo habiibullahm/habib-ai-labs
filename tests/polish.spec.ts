@@ -4,7 +4,7 @@ test('production polish keeps demos visible and selects real mobile previews', a
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
   const proofLinks = page.locator('.hero-proof a');
-  await expect(proofLinks).toHaveCount(2);
+  await expect(proofLinks).toHaveCount(3);
   for (const link of await proofLinks.all()) {
     await expect(link).toBeInViewport();
     await expect(link).toHaveAttribute('target', '_blank');
